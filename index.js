@@ -71,14 +71,16 @@ let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
 
 function getRandomCard() {
-    let randomNumber = Math.floor( Math.random()*13 ) + 1
+    let card = deck[Math.floor (Math.random() *  deck.length)];
+    // console.log(card);
+    let randomNumber = Math.floor( Math.random()*13 ) + 1;
     if (randomNumber > 10) {
         return 10
     } else if (randomNumber === 1) {
         return 11
     } else {
         return randomNumber
-    }
+    };
 }
 
 function startGame() {
@@ -91,12 +93,13 @@ function startGame() {
 }
 
 function renderGame() {
-    cardsEl.textContent = "Cards: "
+    let cards = deck[Math.floor (Math.random() *  deck.length)];
+    cardsEl.textContent = "Cards: ";
     for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
-    }
+    };
     
-    sumEl.textContent = "Sum: " + sum
+    sumEl.textContent = "Sum: " + sum;
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
     } else if (sum === 21) {
