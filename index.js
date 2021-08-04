@@ -51,28 +51,32 @@ let deck = [
     { value: "K", suit: "D", numValue: 10},
     { value: "K", suit: "C", numValue: 10},
     { value: "K", suit: "H", numValue: 10},
-]
+];
 
 let player = {
     name: "Per",
     chips: 200
-}
+};
 
-let cards = []
-let sum = 0
-let hasBlackJack = false
-let isAlive = false
-let message = ""
-let messageEl = document.getElementById("message-el")
-let sumEl = document.getElementById("sum-el")
-let cardsEl = document.getElementById("cards-el")
-let playerEl = document.getElementById("player-el")
+let hand = [];
+let cards = [];
+let sum = 0;
+let hasBlackJack = false;
+let isAlive = false;
+let message = "";
+let messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+let playerEl = document.getElementById("player-el");
 
-playerEl.textContent = player.name + ": $" + player.chips
+playerEl.textContent = player.name + ": $" + player.chips;
 
 function getRandomCard() {
-    cards = deck[Math.floor (Math.random() *  deck.length)];
-    console.log(cards);
+    // cards = deck[Math.floor (Math.random() *  deck.length)];
+    cards = deck
+    let card = cards[Math.floor (Math.random() *  deck.length)];
+    return card
+    console.log(card);
 // need to itirate through the cards vaiable to get key value
 
     // let randomNumber = Math.floor( Math.random()*13 ) + 1;
@@ -90,16 +94,18 @@ function startGame() {
     isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
-    cards = [firstCard, secondCard]
-    sum = firstCard + secondCard
+    console.log(firstCard);
+    console.log(secondCard);
+    hand = [firstCard.value, secondCard.value]
+    sum = firstCard.numValue + secondCard.numValue
     renderGame()
 }
 
 function renderGame() {
     // let cards = deck[Math.floor (Math.random() *  deck.length)];
     cardsEl.textContent = "Cards: ";
-    for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent += cards[i] + " "
+    for (let i = 0; i < hand.length; i++) {
+        cardsEl.textContent += hand[i] + " "
     };
     
     sumEl.textContent = "Sum: " + sum;
@@ -119,9 +125,10 @@ function renderGame() {
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
         let cards = getRandomCard()
-        sum += cards
-        cards.push(cards)
+        sum += hand
+        hand.push(ca)
         renderGame()        
     }
 }
 console.log(cards);
+console.log(getRandomCard());
