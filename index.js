@@ -71,8 +71,8 @@ let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
 
 function getRandomCard() {
-    let card = deck[Math.floor (Math.random() *  deck.length)];
-    // console.log(card);
+    cards = deck[Math.floor (Math.random() *  deck.length)];
+    console.log(cards);
     let randomNumber = Math.floor( Math.random()*13 ) + 1;
     if (randomNumber > 10) {
         return 10
@@ -93,7 +93,7 @@ function startGame() {
 }
 
 function renderGame() {
-    let cards = deck[Math.floor (Math.random() *  deck.length)];
+    // let cards = deck[Math.floor (Math.random() *  deck.length)];
     cardsEl.textContent = "Cards: ";
     for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
@@ -121,3 +121,4 @@ function newCard() {
         renderGame()        
     }
 }
+console.log(cards);
