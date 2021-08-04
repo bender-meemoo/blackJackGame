@@ -73,16 +73,19 @@ playerEl.textContent = player.name + ": $" + player.chips
 function getRandomCard() {
     cards = deck[Math.floor (Math.random() *  deck.length)];
     console.log(cards);
-    let randomNumber = Math.floor( Math.random()*13 ) + 1;
-    if (randomNumber > 10) {
-        return 10
-    } else if (randomNumber === 1) {
-        return 11
-    } else {
-        return randomNumber
-    };
-}
+// need to itirate through the cards vaiable to get key value
 
+    // let randomNumber = Math.floor( Math.random()*13 ) + 1;
+    // if (randomNumber > 10) {
+    //     return 10
+    // } else if (randomNumber === 1) {
+    //     return 11
+    // } else {
+    //     return randomNumber
+    
+
+}
+// value: "K", suit: "H", numValue: 10
 function startGame() {
     isAlive = true
     let firstCard = getRandomCard()
@@ -115,9 +118,9 @@ function renderGame() {
 
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
-        let card = getRandomCard()
-        sum += card
-        cards.push(card)
+        let cards = getRandomCard()
+        sum += cards
+        cards.push(cards)
         renderGame()        
     }
 }
