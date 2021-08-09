@@ -124,11 +124,12 @@ function renderGame() {
 
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
-        let cards = getRandomCard()
-        sum += hand
-        hand.push(ca)
-        renderGame()        
-    }
+        let cards = getRandomCard();
+        sum += cards.numValue;
+        hand.push(cards.value);
+        renderGame();
+    };
 }
-console.log(cards);
-console.log(getRandomCard());
+// console.log(cards);
+// console.log(getRandomCard());
+console.log(hand);
